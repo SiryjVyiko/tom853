@@ -14,9 +14,10 @@ if [ -d "/opt/repo/.ssh" ] ; then
     mv /opt/repo/.ssh /opt/repo/home/
 fi
 
-[ -f "/opt/repo/.bash_profile" ] && cp /opt/repo/.bash_profile /opt/repo/home/
+[ -f "/opt/repo/.bash_profile" ] && cp /opt/repo/.bash_profile /opt/repo/home/;
 
-[ -d "/opt/repo/logs" ] && rmdir /opt/repo/logs
-ln -s /opt/repo/versions/${Version}/logs /opt/repo/logs
+[ -d "/opt/repo/logs" ] && rmdir /opt/repo/logs;
+mkdir -p /opt/repo/versions/${Version}/logs;
+ln -s /opt/repo/versions/${Version}/logs /opt/repo/logs;
 
-sed -i 's/$RUNAS/root/' /etc/rc.d/init.d/cartridge
+sed -i 's/$RUNAS/root/' /etc/rc.d/init.d/cartridge;
